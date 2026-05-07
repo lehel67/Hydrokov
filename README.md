@@ -65,4 +65,4 @@ Poți adăuga logo-ul în fișierul `icons/hydrokov.png` (recomandat 512×512 px
 ---
 
 **Versiune:** 1.0.0  
-**Realizat:** konczei.lehel@gmail.cin (2026)
+**Realizat:** konczei.lehel@gmail.con (2026)
