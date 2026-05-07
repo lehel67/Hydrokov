@@ -1,6 +1,6 @@
 # Integrare Hydrokov pentru Home Assistant
 
-Această integrare permite citirea datelor de la portalul client **Hydrokov** (România) direct în Home Assistant.
+Această integrare permite citirea datelor din portalul client **Hydrokov SA** operator regional în judeţul Covasna direct în Home Assistant.
 
 ## Funcționalități
 
@@ -9,60 +9,61 @@ Această integrare permite citirea datelor de la portalul client **Hydrokov** (R
 - Data ultimei citiri
 - Valoarea ultimei facturi (RON)
 - Suma de plătit (RON)
-- Număr total facturi
-- Ultimele **6 indexuri** ale contorului (în atribute)
+- Număr total de facturi
+- Ultimele **8 indexuri** ale contorului (în atribute)
 - Ultimele **6 facturi** detaliate (în atribute)
 
 ## Instalare
 
 ### 1. Prin HACS (recomandat)
 
-1. Deschide HACS
-2. Mergi la **Integrations**
-3. Apasă **Explore & Download Repositories**
-4. Caută: `Hydrokov`
-5. Instalează și restartează Home Assistant
+1. Deschide HACS → **Integrations**
+2. Apasă **Explore & Download Repositories**
+3. Caută: `Hydrokov`
+4. Instalează și restartează Home Assistant
 
 ### 2. Instalare manuală
 
 1. Copiază folderul `hydrokov` în `/config/custom_components/`
 2. Restartează Home Assistant
 3. Mergi la **Setări → Dispozitive și servicii → Adaugă integrare**
-4. Caută: **Hydrokov**
+4. Caută și adaugă **Hydrokov**
 
 ## Configurare
 
 La adăugarea integrării completează:
 
-- **Email**: adresa cu care te autentifici pe [app.hydrokov.ro](https://app.hydrokov.ro)
+- **Email**: adresa de email folosită pe [app.hydrokov.ro](https://app.hydrokov.ro)
 - **Parolă**: parola contului
-- **Client ID**: apare pe ultima factura (sau verifică pe portal)
+- **Client ID**: de obicei 
 
 ## Entități disponibile
 
-| Nume entitate                    | Tip       | Descriere                          |
-|----------------------------------|-----------|------------------------------------|
-| Vízmérő állás                    | Sensor    | Index contor actual (m³)           |
-| Legutóbbi fogyasztás             | Sensor    | Ultimul consum                     |
-| Utolsó leolvasás                 | Sensor    | Data ultimei citiri                |
-| Legutóbbi számla                 | Sensor    | Valoarea ultimei facturi           |
-| Fizetendő összeg                 | Sensor    | Sumă de plătit                     |
-| Összes számla száma              | Sensor    | Număr total facturi                |
+| Nume entitate                    | Tip       | Descriere                              |
+|----------------------------------|-----------|----------------------------------------|
+| Water Meter Reading              | Sensor    | Index contor actual (m³)               |
+| Latest Consumption               | Sensor    | Ultimul consum (m³)                    |
+| Last Reading Date                | Sensor    | Data ultimei citiri                    |
+| Latest Invoice                   | Sensor    | Valoarea ultimei facturi (RON)         |
+| Outstanding Amount               | Sensor    | Suma de plătit                         |
+| Total Invoices                   | Sensor    | Număr total de facturi                 |
 
-**Atribute** (când apeși pe entitate):
-- `allás_1` … `allás_6` → ultimele indexuri cu dată
-- `szamla_1` … `szamla_6` → ultimele facturi detaliate
+### Atribute utile
 
-## Logo
+**Water Meter Reading** (entitate principală contor):
+- `reading_1` → `reading_8`: ultimele indexuri cu dată
 
-Poți adăuga logo-ul în fișierul `icons/hydrokov.png` (recomandat 512×512 px).
+**Latest Invoice** (entitate principală factură):
+- `invoice_1` → `invoice_6`: ultimele facturi detaliate
+- `invoices_count`: număr total facturi
 
 ## Depanare
 
-- Dacă nu se încarcă datele → verifică jurnalele (caută `hydrokov`)
-- La erori de autentificare integrarea încearcă automat reconectarea
+- Verifică jurnalele (caută `hydrokov`) dacă nu se încarcă datele
+- Integrarea se reconectează automat la erori de autentificare
 
 ---
 
 **Versiune:** 1.0.0  
-**Realizat:** konczei.lehel@gmail.con (2026)
+**Data:** Mai 2026
+**Realizat: ** @lehel67 (konczei.lehel@gmail.com)
