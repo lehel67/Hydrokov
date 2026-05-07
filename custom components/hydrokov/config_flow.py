@@ -16,7 +16,7 @@ class HydrokovConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 data={
                     CONF_EMAIL: user_input[CONF_EMAIL],
                     CONF_PASSWORD: user_input[CONF_PASSWORD],
-                    CONF_CLIENT_ID: user_input.get(CONF_CLIENT_ID, "TSY4647"),
+                    CONF_CLIENT_ID: user_input.get(CONF_CLIENT_ID),
                 }
             )
 
