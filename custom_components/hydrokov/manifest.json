@@ -1,12 +1,11 @@
 {
   "domain": "hydrokov",
-  "name": "Hydrokov Covasna",
+  "name": "Hydrokov",
+  "version": "1.1.0",
   "codeowners": ["@lehel67"],
-  "version": "1.0.0",
   "iot_class": "cloud_polling",
   "config_flow": true,
   "documentation": "https://github.com/lehel67/Hydrokov",
   "issue_tracker": "https://github.com/lehel67/Hydrokov/issues",
-  "icon": "mdi:water",
-  "logo": "custom_components/hydrokov/icons/hydrokov.png"
+  "icon": "mdi:water"
 }
